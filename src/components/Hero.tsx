@@ -87,11 +87,6 @@ export function Hero({ state, onRun }: HeroProps) {
 
           <HeroDemoPromo />
 
-          <p className="mt-4 max-w-xl text-sm text-fg-2">
-            {t('contact_hint')}{' '}
-            <span className="font-medium text-gold">{t('contact_brand')}</span>
-          </p>
-
           <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] text-fg-2 sm:mt-3 sm:gap-x-3 sm:text-xs">
             <span><span data-num className="text-fg-0">104</span> {t('stat_matches')}</span>
             <span className="text-fg-3">·</span>
