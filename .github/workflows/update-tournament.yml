@@ -1,14 +1,10 @@
-name: Live tournament update (Tier 1.5)
+name: Live tournament update (manual)
 
-# Runs every 15 minutes during the WC 2026 window (June 11 - July 19, 2026). Fetches
-# match results + cards from ESPN's hidden API, derives live suspensions,
-# re-runs the Monte Carlo with the collapsed state, and writes a fresh
-# snapshot. Any change to src/data/* triggers Netlify auto-deploy.
+# Manual only. Run this from GitHub Actions when you want to refresh match
+# results, cards, suspensions, Monte Carlo snapshots, and prediction audit.
+# Any committed change to src/data/* can still trigger Netlify auto-deploy.
 
 on:
-  schedule:
-    # Every 15 minutes, offset away from top-of-hour GitHub Actions load.
-    - cron: '5,20,35,50 * * * *'
   workflow_dispatch:
     inputs:
       range:
@@ -29,7 +25,7 @@ jobs:
           NOW=$(date -u +%Y-%m-%d)
           if [[ "$NOW" < "2026-06-11" || "$NOW" > "2026-07-19" ]]; then
             echo "outside-window=true" >> "$GITHUB_OUTPUT"
-            echo "Date $NOW outside 2026-06-11..2026-07-19 window — skipping."
+            echo "Date $NOW outside 2026-06-11..2026-07-19 window - skipping."
           else
             echo "outside-window=false" >> "$GITHUB_OUTPUT"
           fi
@@ -61,7 +57,7 @@ jobs:
 
       - name: Fetch cards + derive suspensions
         if: steps.gate.outputs.outside-window == 'false'
-        run: npx tsx scripts/fetch-cards.ts --all || echo 'cards scrape failed (non-fatal — results still committed)'
+        run: npx tsx scripts/fetch-cards.ts --all || echo 'cards scrape failed (non-fatal - results still committed)'
 
       - name: Snapshot Monte Carlo
         if: steps.gate.outputs.outside-window == 'false'
@@ -82,5 +78,5 @@ jobs:
             git commit -m "chore(live): tournament update $(date -u +%Y-%m-%dT%H:%MZ)"
             git push
           else
-            echo 'No changes — skipping commit.'
+            echo 'No changes - skipping commit.'
           fi
