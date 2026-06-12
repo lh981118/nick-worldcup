@@ -9,6 +9,7 @@ import { MeshGradient } from './hero/MeshGradient';
 import { HeroGallery } from './hero/HeroGallery';
 import { HeroDemoPromo } from './hero/HeroDemoPromo';
 import { KickoffCountdown } from './hero/KickoffCountdown';
+import { LiveUpdateNotice } from './LiveUpdateNotice';
 import type { SimState } from '@/hooks/useSimulation';
 
 interface HeroProps {
@@ -86,6 +87,8 @@ export function Hero({ state, onRun }: HeroProps) {
           <p className="mt-5 max-w-xl text-base leading-relaxed text-fg-1 sm:text-lg">{t('subtitle')}</p>
 
           <HeroDemoPromo />
+
+          <LiveUpdateNotice />
 
           <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] text-fg-2 sm:mt-3 sm:gap-x-3 sm:text-xs">
             <span><span data-num className="text-fg-0">104</span> {t('stat_matches')}</span>
