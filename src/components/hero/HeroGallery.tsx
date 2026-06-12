@@ -11,7 +11,9 @@ import { useSelection } from '@/hooks/useSelection';
 import { Flag } from '../Flag';
 import stateData from '@/data/tournament_state.json';
 import auditData from '@/data/prediction_audit.json';
+import teamsData from '@/data/teams.json';
 import type { SerializedResult } from '@/lib/sim/worker';
+import type { Team } from '@/lib/sim/types';
 
 interface Props {
   result: SerializedResult | null;
@@ -21,24 +23,29 @@ interface LiveResult {
   stage: 'group' | 'r32' | 'r16' | 'qf' | 'sf' | 'final' | '3rd';
   home: string;
   away: string;
-  gh: number;
-  ga: number;
   status: 'completed' | 'scheduled';
   kickoff_iso?: string;
 }
 
+interface Forecast {
+  predicted_gh: number;
+  predicted_ga: number;
+}
+
+interface AuditResult extends Forecast {
+  actual_gh: number;
+  actual_ga: number;
+  exact_score_hit: boolean;
+}
+
 interface PredictionAuditFile {
-  results: Record<string, {
-    predicted_gh: number;
-    predicted_ga: number;
-    actual_gh: number;
-    actual_ga: number;
-    exact_score_hit: boolean;
-  }>;
+  forecasts: Record<string, Forecast>;
+  results: Record<string, AuditResult>;
 }
 
 const LIVE_RESULTS = (stateData as { results: Record<string, LiveResult> }).results;
 const AUDIT = auditData as PredictionAuditFile;
+const TEAM_BY_ID = new Map((teamsData as { teams: Team[] }).teams.map((team) => [team.id, team]));
 
 function shanghaiDateKey(iso?: string): string {
   if (!iso) return '';
@@ -52,7 +59,7 @@ function shanghaiDateKey(iso?: string): string {
   return `${get('year')}-${get('month')}-${get('day')}`;
 }
 
-function shanghaiTime(iso: string | undefined): string {
+function shanghaiTime(iso?: string): string {
   if (!iso) return '--:--';
   return new Intl.DateTimeFormat('zh-CN', {
     timeZone: 'Asia/Shanghai',
@@ -86,18 +93,25 @@ export function HeroGallery({ result }: Props) {
   const openFixture = useSelection((s) => s.openFixture);
 
   const cards = useMemo(() => {
-    const teamById = new Map(result?.teams.map((t) => [t.id, t]) ?? []);
+    const teamById = result ? new Map(result.teams.map((team) => [team.id, team])) : TEAM_BY_ID;
     const fixtureByKey = new Map(result?.fixtures ?? []);
     const today = shanghaiDateKey(new Date().toISOString());
+
     const all = Object.entries(LIVE_RESULTS)
       .filter(([, match]) => match.kickoff_iso)
       .map(([key, match]) => {
         const fixture = fixtureByKey.get(key);
-        const predicted = fixture ? modalScore(fixture.scoreHist) : null;
+        const forecast = AUDIT.forecasts[key];
+        const predicted = fixture
+          ? modalScore(fixture.scoreHist)
+          : forecast
+            ? { home: forecast.predicted_gh, away: forecast.predicted_ga, prob: 0 }
+            : null;
         const audit = AUDIT.results[key];
         const shownScore = audit
           ? { home: audit.predicted_gh, away: audit.predicted_ga, prob: predicted?.prob ?? 0 }
           : predicted;
+
         return {
           key,
           match,
@@ -106,6 +120,7 @@ export function HeroGallery({ result }: Props) {
           localDate: shanghaiDateKey(match.kickoff_iso),
           shownScore,
           audit,
+          canOpen: Boolean(fixture),
         };
       })
       .filter((item) => item.homeTeam && item.awayTeam && item.shownScore)
@@ -158,8 +173,8 @@ export function HeroGallery({ result }: Props) {
           </h2>
           <p className="mt-1 max-w-lg text-xs leading-relaxed text-fg-2 sm:text-sm">
             {locale === 'zh'
-              ? '点开任意比赛，查看比分分布、胜平负概率、进球和关键数据。'
-              : 'Tap any match to open the score distribution and match probabilities.'}
+              ? '打开就能看今日比分预测，想看完整模型再手动模拟。'
+              : 'See today picks instantly. Run the full model only when needed.'}
           </p>
         </div>
         <div className="hidden rounded-full border border-gold/25 bg-gold/10 p-2 text-gold sm:block">
@@ -168,17 +183,23 @@ export function HeroGallery({ result }: Props) {
       </header>
 
       <div className="relative z-10 grid gap-2.5">
-        {cards.map(({ key, match, homeTeam, awayTeam, shownScore, audit }) => {
+        {cards.map(({ key, match, homeTeam, awayTeam, shownScore, audit, canOpen }) => {
           if (!homeTeam || !awayTeam || !shownScore) return null;
           const completed = match.status === 'completed';
           const homeWin = shownScore.home > shownScore.away;
           const awayWin = shownScore.home < shownScore.away;
+
           return (
             <button
               key={key}
               type="button"
-              onClick={() => openFixture(key)}
-              className="daily-pick-card group grid w-full grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 rounded-xl border border-border/70 bg-bg-1/72 px-3 py-3 text-left transition hover:border-emerald/45 hover:bg-bg-2/80 hover:shadow-glow"
+              onClick={() => {
+                if (canOpen) openFixture(key);
+              }}
+              className={cn(
+                'daily-pick-card group grid w-full grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 rounded-xl border border-border/70 bg-bg-1/72 px-3 py-3 text-left transition hover:border-emerald/45 hover:bg-bg-2/80',
+                canOpen ? 'cursor-pointer hover:shadow-glow' : 'cursor-default',
+              )}
             >
               <div className="min-w-0">
                 <div className="mb-1 flex items-center gap-2">
@@ -190,7 +211,7 @@ export function HeroGallery({ result }: Props) {
                 <div className="font-mono text-[10px] text-fg-3">
                   {shanghaiTime(match.kickoff_iso)}
                   <span className="mx-1">·</span>
-                  {match.stage === 'group' ? `${locale === 'zh' ? '小组赛' : 'Group'} ${match.home && key.split(':')[0]}` : match.stage.toUpperCase()}
+                  {match.stage === 'group' ? `${locale === 'zh' ? '小组赛' : 'Group'} ${key.split(':')[0]}` : match.stage.toUpperCase()}
                 </div>
               </div>
 
@@ -216,7 +237,10 @@ export function HeroGallery({ result }: Props) {
                   ) : (
                     <>
                       <Clock3 className="h-3 w-3" />
-                      <span>{locale === 'zh' ? '预测' : 'Pick'} {formatPct(shownScore.prob, 1)}</span>
+                      <span>
+                        {locale === 'zh' ? '预测' : 'Pick'}
+                        {shownScore.prob > 0 ? ` ${formatPct(shownScore.prob, 1)}` : ''}
+                      </span>
                     </>
                   )}
                 </div>
@@ -232,8 +256,10 @@ export function HeroGallery({ result }: Props) {
                 <div className="inline-flex items-center gap-1 font-mono text-[10px] text-emerald/90">
                   {completed && audit
                     ? `${locale === 'zh' ? '实际' : 'Actual'} ${audit.actual_gh}-${audit.actual_ga}`
-                    : locale === 'zh' ? '查看详情' : 'Details'}
-                  <ChevronRight className="h-3 w-3 transition group-hover:translate-x-0.5" />
+                    : canOpen
+                      ? locale === 'zh' ? '查看详情' : 'Details'
+                      : locale === 'zh' ? '默认预测' : 'Default pick'}
+                  {canOpen && <ChevronRight className="h-3 w-3 transition group-hover:translate-x-0.5" />}
                 </div>
               </div>
             </button>
@@ -243,8 +269,8 @@ export function HeroGallery({ result }: Props) {
 
       <div className="relative z-10 mt-3 rounded-xl border border-border/60 bg-bg-1/50 px-3 py-2 font-mono text-[10px] leading-relaxed text-fg-3">
         {locale === 'zh'
-          ? '每天自动同步赛果，并用最新数据重新生成预测比分。'
-          : 'Results sync automatically and the model refreshes predictions with the latest data.'}
+          ? '无需等待模拟，赛前预测比分会直接展示。'
+          : 'No simulation wait: score picks are shown immediately.'}
       </div>
     </div>
   );

@@ -2,22 +2,28 @@
 
 import { useEffect, useRef } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+import { BarChart3, ListChecks } from 'lucide-react';
 import { gsap } from 'gsap';
 import { entrancePlayed, markEntrancePlayed } from '@/lib/entranceAnimation';
-import { SimulationControls } from './SimulationControls';
 import { MeshGradient } from './hero/MeshGradient';
 import { HeroGallery } from './hero/HeroGallery';
-import { HeroDemoPromo } from './hero/HeroDemoPromo';
 import { KickoffCountdown } from './hero/KickoffCountdown';
 import { LiveUpdateNotice } from './LiveUpdateNotice';
 import type { SimState } from '@/hooks/useSimulation';
 
 interface HeroProps {
   state: SimState;
-  onRun: (n: number) => void;
 }
 
-export function Hero({ state, onRun }: HeroProps) {
+function scrollToSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+  window.history.replaceState(null, '', `#${id}`);
+}
+
+export function Hero({ state }: HeroProps) {
   const t = useTranslations('hero');
   const locale = useLocale();
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -84,9 +90,37 @@ export function Hero({ state, onRun }: HeroProps) {
             </span>
           </h1>
 
+          <div className="mt-4 flex flex-wrap gap-2">
+            <a
+              href="/zh#all-predictions"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection('all-predictions');
+              }}
+              className="inline-flex items-center gap-2 rounded-full border border-emerald/35 bg-emerald/12 px-4 py-2 text-sm font-semibold text-emerald transition hover:border-emerald/60 hover:bg-emerald/18"
+            >
+              <ListChecks className="h-4 w-4" />
+              {locale === 'zh' ? '查看全部赛程预测' : 'View all match predictions'}
+            </a>
+            <a
+              href="/zh#analysis"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection('analysis');
+              }}
+              className="inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold transition hover:border-gold/60 hover:bg-gold/15"
+            >
+              <BarChart3 className="h-4 w-4" />
+              {locale === 'zh' ? '查看夺冠概率' : 'View title odds'}
+            </a>
+          </div>
+
           <p className="mt-5 max-w-xl text-base leading-relaxed text-fg-1 sm:text-lg">{t('subtitle')}</p>
 
-          <HeroDemoPromo />
+          <div className="mt-4 flex w-full min-w-0 flex-col lg:hidden">
+            <KickoffCountdown className="mb-4" />
+            <HeroGallery result={state.result} />
+          </div>
 
           <LiveUpdateNotice />
 
@@ -97,13 +131,9 @@ export function Hero({ state, onRun }: HeroProps) {
             <span className="text-fg-3">·</span>
             <span><span data-num className="text-fg-0">1.4×10⁴⁸</span> {t('stat_scenarios')}</span>
           </div>
-
-          <div id="simulate" className="mt-8">
-            <SimulationControls state={state} onRun={onRun} />
-          </div>
         </div>
 
-        <div className="relative flex w-full min-w-0 flex-col">
+        <div className="relative hidden w-full min-w-0 flex-col lg:flex">
           <KickoffCountdown className="mb-2 sm:mb-4 lg:mb-4" />
           <HeroGallery result={state.result} />
         </div>
