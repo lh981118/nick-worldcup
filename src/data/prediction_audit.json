@@ -1,7 +1,7 @@
 {
   "_meta": {
     "purpose": "Tracks pre-match modal-score forecasts against real World Cup results. Exact score matches count as hits.",
-    "updated_at": "2026-06-12T06:52:41.672Z",
+    "updated_at": "2026-06-12T07:49:24.378Z",
     "accuracy": {
       "exact_score_hits": 1,
       "settled_matches": 2,
@@ -15,7 +15,7 @@
       "away": "CAN",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "74": {
       "stage": "r32",
@@ -23,7 +23,7 @@
       "away": "HAI",
       "predicted_gh": 2,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "75": {
       "stage": "r32",
@@ -31,7 +31,7 @@
       "away": "MAR",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "76": {
       "stage": "r32",
@@ -39,7 +39,7 @@
       "away": "JPN",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "77": {
       "stage": "r32",
@@ -47,7 +47,7 @@
       "away": "EGY",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "78": {
       "stage": "r32",
@@ -55,7 +55,7 @@
       "away": "NOR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "79": {
       "stage": "r32",
@@ -63,7 +63,7 @@
       "away": "CIV",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "80": {
       "stage": "r32",
@@ -71,7 +71,7 @@
       "away": "UZB",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "81": {
       "stage": "r32",
@@ -79,7 +79,7 @@
       "away": "BIH",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "82": {
       "stage": "r32",
@@ -87,7 +87,7 @@
       "away": "CZE",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "83": {
       "stage": "r32",
@@ -95,7 +95,7 @@
       "away": "CRO",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "84": {
       "stage": "r32",
@@ -103,7 +103,7 @@
       "away": "AUT",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "85": {
       "stage": "r32",
@@ -111,7 +111,7 @@
       "away": "EGY",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "86": {
       "stage": "r32",
@@ -119,7 +119,7 @@
       "away": "URU",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "87": {
       "stage": "r32",
@@ -127,7 +127,7 @@
       "away": "PAN",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "88": {
       "stage": "r32",
@@ -135,7 +135,7 @@
       "away": "IRN",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "89": {
       "stage": "r16",
@@ -143,7 +143,7 @@
       "away": "FRA",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "90": {
       "stage": "r16",
@@ -151,7 +151,7 @@
       "away": "NED",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "91": {
       "stage": "r16",
@@ -159,7 +159,7 @@
       "away": "NOR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "92": {
       "stage": "r16",
@@ -167,7 +167,7 @@
       "away": "ENG",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "93": {
       "stage": "r16",
@@ -175,7 +175,7 @@
       "away": "ESP",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "94": {
       "stage": "r16",
@@ -183,7 +183,7 @@
       "away": "BEL",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "95": {
       "stage": "r16",
@@ -191,7 +191,7 @@
       "away": "TUR",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "96": {
       "stage": "r16",
@@ -199,7 +199,7 @@
       "away": "POR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "97": {
       "stage": "qf",
@@ -207,7 +207,7 @@
       "away": "NED",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "98": {
       "stage": "qf",
@@ -215,7 +215,7 @@
       "away": "BEL",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "99": {
       "stage": "qf",
@@ -223,7 +223,7 @@
       "away": "ENG",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "100": {
       "stage": "qf",
@@ -231,7 +231,7 @@
       "away": "POR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "101": {
       "stage": "sf",
@@ -239,7 +239,7 @@
       "away": "ESP",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "102": {
       "stage": "sf",
@@ -247,7 +247,7 @@
       "away": "ARG",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "103": {
       "stage": "3rd",
@@ -255,7 +255,7 @@
       "away": "ARG",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "104": {
       "stage": "final",
@@ -263,7 +263,7 @@
       "away": "ARG",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "A:0": {
       "stage": "group",
@@ -287,7 +287,7 @@
       "away": "KOR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "A:3": {
       "stage": "group",
@@ -295,7 +295,7 @@
       "away": "CZE",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "A:4": {
       "stage": "group",
@@ -303,7 +303,7 @@
       "away": "CZE",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "A:5": {
       "stage": "group",
@@ -311,7 +311,7 @@
       "away": "KOR",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "B:0": {
       "stage": "group",
@@ -319,7 +319,7 @@
       "away": "BIH",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "B:1": {
       "stage": "group",
@@ -327,7 +327,7 @@
       "away": "SUI",
       "predicted_gh": 0,
       "predicted_ga": 2,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "B:2": {
       "stage": "group",
@@ -335,7 +335,7 @@
       "away": "QAT",
       "predicted_gh": 2,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "B:3": {
       "stage": "group",
@@ -343,7 +343,7 @@
       "away": "SUI",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "B:4": {
       "stage": "group",
@@ -351,7 +351,7 @@
       "away": "SUI",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "B:5": {
       "stage": "group",
@@ -359,7 +359,7 @@
       "away": "QAT",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "C:0": {
       "stage": "group",
@@ -367,7 +367,7 @@
       "away": "MAR",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "C:1": {
       "stage": "group",
@@ -375,7 +375,7 @@
       "away": "SCO",
       "predicted_gh": 2,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "C:2": {
       "stage": "group",
@@ -383,7 +383,7 @@
       "away": "HAI",
       "predicted_gh": 2,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "C:3": {
       "stage": "group",
@@ -391,7 +391,7 @@
       "away": "SCO",
       "predicted_gh": 3,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "C:4": {
       "stage": "group",
@@ -399,7 +399,7 @@
       "away": "SCO",
       "predicted_gh": 3,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "C:5": {
       "stage": "group",
@@ -407,7 +407,7 @@
       "away": "HAI",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "D:0": {
       "stage": "group",
@@ -415,7 +415,7 @@
       "away": "PAR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "D:1": {
       "stage": "group",
@@ -423,7 +423,7 @@
       "away": "TUR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "D:2": {
       "stage": "group",
@@ -431,7 +431,7 @@
       "away": "AUS",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "D:3": {
       "stage": "group",
@@ -439,7 +439,7 @@
       "away": "TUR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "D:4": {
       "stage": "group",
@@ -447,7 +447,7 @@
       "away": "TUR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "D:5": {
       "stage": "group",
@@ -455,7 +455,7 @@
       "away": "AUS",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "E:0": {
       "stage": "group",
@@ -463,7 +463,7 @@
       "away": "CUW",
       "predicted_gh": 2,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "E:1": {
       "stage": "group",
@@ -471,7 +471,7 @@
       "away": "ECU",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "E:2": {
       "stage": "group",
@@ -479,7 +479,7 @@
       "away": "CIV",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "E:3": {
       "stage": "group",
@@ -487,7 +487,7 @@
       "away": "ECU",
       "predicted_gh": 0,
       "predicted_ga": 2,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "E:4": {
       "stage": "group",
@@ -495,7 +495,7 @@
       "away": "ECU",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "E:5": {
       "stage": "group",
@@ -503,7 +503,7 @@
       "away": "CIV",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "F:0": {
       "stage": "group",
@@ -511,7 +511,7 @@
       "away": "JPN",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "F:1": {
       "stage": "group",
@@ -519,7 +519,7 @@
       "away": "TUN",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "F:2": {
       "stage": "group",
@@ -527,7 +527,7 @@
       "away": "SWE",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "F:3": {
       "stage": "group",
@@ -535,7 +535,7 @@
       "away": "TUN",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "F:4": {
       "stage": "group",
@@ -543,7 +543,7 @@
       "away": "TUN",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "F:5": {
       "stage": "group",
@@ -551,7 +551,7 @@
       "away": "SWE",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "G:0": {
       "stage": "group",
@@ -559,7 +559,7 @@
       "away": "EGY",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "G:1": {
       "stage": "group",
@@ -567,7 +567,7 @@
       "away": "NZL",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "G:2": {
       "stage": "group",
@@ -575,7 +575,7 @@
       "away": "IRN",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "G:3": {
       "stage": "group",
@@ -583,7 +583,7 @@
       "away": "NZL",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "G:4": {
       "stage": "group",
@@ -591,7 +591,7 @@
       "away": "NZL",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "G:5": {
       "stage": "group",
@@ -599,7 +599,7 @@
       "away": "IRN",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "H:0": {
       "stage": "group",
@@ -607,7 +607,7 @@
       "away": "CPV",
       "predicted_gh": 2,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "H:1": {
       "stage": "group",
@@ -615,7 +615,7 @@
       "away": "URU",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "H:2": {
       "stage": "group",
@@ -623,7 +623,7 @@
       "away": "KSA",
       "predicted_gh": 2,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "H:3": {
       "stage": "group",
@@ -631,7 +631,7 @@
       "away": "URU",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "H:4": {
       "stage": "group",
@@ -639,7 +639,7 @@
       "away": "URU",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "H:5": {
       "stage": "group",
@@ -647,7 +647,7 @@
       "away": "KSA",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "I:0": {
       "stage": "group",
@@ -655,7 +655,7 @@
       "away": "SEN",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "I:1": {
       "stage": "group",
@@ -663,7 +663,7 @@
       "away": "NOR",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "I:2": {
       "stage": "group",
@@ -671,7 +671,7 @@
       "away": "IRQ",
       "predicted_gh": 2,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "I:3": {
       "stage": "group",
@@ -679,7 +679,7 @@
       "away": "NOR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "I:4": {
       "stage": "group",
@@ -687,7 +687,7 @@
       "away": "NOR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "I:5": {
       "stage": "group",
@@ -695,7 +695,7 @@
       "away": "IRQ",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "J:0": {
       "stage": "group",
@@ -703,7 +703,7 @@
       "away": "ALG",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "J:1": {
       "stage": "group",
@@ -711,7 +711,7 @@
       "away": "JOR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "J:2": {
       "stage": "group",
@@ -719,7 +719,7 @@
       "away": "AUT",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "J:3": {
       "stage": "group",
@@ -727,7 +727,7 @@
       "away": "JOR",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "J:4": {
       "stage": "group",
@@ -735,7 +735,7 @@
       "away": "JOR",
       "predicted_gh": 2,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "J:5": {
       "stage": "group",
@@ -743,7 +743,7 @@
       "away": "AUT",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "K:0": {
       "stage": "group",
@@ -751,7 +751,7 @@
       "away": "COD",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "K:1": {
       "stage": "group",
@@ -759,7 +759,7 @@
       "away": "COL",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "K:2": {
       "stage": "group",
@@ -767,7 +767,7 @@
       "away": "UZB",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "K:3": {
       "stage": "group",
@@ -775,7 +775,7 @@
       "away": "COL",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "K:4": {
       "stage": "group",
@@ -783,7 +783,7 @@
       "away": "COL",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "K:5": {
       "stage": "group",
@@ -791,7 +791,7 @@
       "away": "UZB",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "L:0": {
       "stage": "group",
@@ -799,7 +799,7 @@
       "away": "CRO",
       "predicted_gh": 1,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "L:1": {
       "stage": "group",
@@ -807,7 +807,7 @@
       "away": "PAN",
       "predicted_gh": 0,
       "predicted_ga": 1,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "L:2": {
       "stage": "group",
@@ -815,7 +815,7 @@
       "away": "GHA",
       "predicted_gh": 2,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "L:3": {
       "stage": "group",
@@ -823,7 +823,7 @@
       "away": "PAN",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "L:4": {
       "stage": "group",
@@ -831,7 +831,7 @@
       "away": "PAN",
       "predicted_gh": 1,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     },
     "L:5": {
       "stage": "group",
@@ -839,7 +839,7 @@
       "away": "GHA",
       "predicted_gh": 2,
       "predicted_ga": 0,
-      "forecasted_at": "2026-06-12T06:52:38.498Z"
+      "forecasted_at": "2026-06-12T07:49:19.979Z"
     }
   },
   "results": {
