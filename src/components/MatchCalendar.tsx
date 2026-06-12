@@ -6,6 +6,7 @@ import { Flag } from './Flag';
 import { cn, formatPct } from '@/lib/utils';
 import { stageDisplayName, teamDisplayName } from '@/lib/i18nNames';
 import { useSelection } from '@/hooks/useSelection';
+import auditData from '@/data/prediction_audit.json';
 import type { SerializedResult } from '@/lib/sim/worker';
 
 interface Props { result: SerializedResult; }
@@ -27,7 +28,31 @@ interface Row {
   winsAway: number;
   matchupProb: number;
   expectedGoals: number;
+  audit?: {
+    predictedScore: string;
+    actualScore: string;
+    exactScoreHit: boolean;
+  };
 }
+
+interface PredictionAuditFile {
+  _meta: {
+    accuracy: {
+      exact_score_hits: number;
+      settled_matches: number;
+      exact_score_rate: number;
+    };
+  };
+  results: Record<string, {
+    predicted_gh: number;
+    predicted_ga: number;
+    actual_gh: number;
+    actual_ga: number;
+    exact_score_hit: boolean;
+  }>;
+}
+
+const AUDIT = auditData as PredictionAuditFile;
 
 const STAGE_ORDER: Row['stage'][] = ['group', 'r32', 'r16', 'qf', 'sf', '3rd', 'final'];
 
@@ -139,6 +164,7 @@ export function MatchCalendar({ result }: Props) {
       }
       const h = Math.floor(bestIdx / 8);
       const a = bestIdx % 8;
+      const audit = AUDIT.results[key];
 
       out.push({
         key,
@@ -157,6 +183,13 @@ export function MatchCalendar({ result }: Props) {
         winsAway: f.count > 0 ? f.winsAway / f.count : 0,
         matchupProb: f.count / result.numSimulations,
         expectedGoals: f.count > 0 ? (f.sumGoalsHome + f.sumGoalsAway) / f.count : 0,
+        audit: audit
+          ? {
+              predictedScore: `${audit.predicted_gh}-${audit.predicted_ga}`,
+              actualScore: `${audit.actual_gh}-${audit.actual_ga}`,
+              exactScoreHit: audit.exact_score_hit,
+            }
+          : undefined,
       });
     }
 
@@ -211,6 +244,20 @@ export function MatchCalendar({ result }: Props) {
       </header>
 
       <div className="mb-4 flex flex-wrap items-center gap-2">
+        {AUDIT._meta.accuracy.settled_matches > 0 && (
+          <div className="mr-auto flex w-full flex-wrap items-center gap-2 rounded-2xl border border-emerald/30 bg-emerald/10 px-3 py-2 text-xs text-fg-1 sm:w-auto">
+            <span className="font-mono uppercase tracking-[0.14em] text-emerald">
+              {locale === 'zh' ? '预测命中率' : 'Prediction accuracy'}
+            </span>
+            <span>{locale === 'zh' ? '精确比分' : 'Exact score'}</span>
+            <span className="font-mono font-bold tabular text-fg-0">
+              {AUDIT._meta.accuracy.exact_score_hits}/{AUDIT._meta.accuracy.settled_matches}
+            </span>
+            <span className="font-mono tabular text-emerald">
+              {formatPct(AUDIT._meta.accuracy.exact_score_rate, 1)}
+            </span>
+          </div>
+        )}
         {stages.map((s) => (
           <button
             key={s.k}
@@ -250,6 +297,7 @@ export function MatchCalendar({ result }: Props) {
               <th className="px-3 py-3 text-center">{copy.awayWin}</th>
               <th className="px-3 py-3 text-right">{copy.goals}</th>
               <th className="px-3 py-3 text-right">{copy.matchup}</th>
+              <th className="px-3 py-3 text-center">{locale === 'zh' ? '命中' : 'Hit'}</th>
             </tr>
           </thead>
           <tbody>
@@ -293,6 +341,28 @@ export function MatchCalendar({ result }: Props) {
                 </td>
                 <td className="px-3 py-2.5 text-right font-mono text-xs tabular text-fg-3">
                   {r.stage === 'group' ? '100%' : formatPct(r.matchupProb, 1)}
+                </td>
+                <td className="px-3 py-2.5 text-center">
+                  {r.audit ? (
+                    <div className="flex flex-col items-center gap-0.5">
+                      <span
+                        className={cn(
+                          'inline-flex h-6 w-6 items-center justify-center rounded-full border font-mono text-sm font-bold',
+                          r.audit.exactScoreHit
+                            ? 'border-emerald/50 bg-emerald/15 text-emerald'
+                            : 'border-rose/50 bg-rose/15 text-rose',
+                        )}
+                        title={`${locale === 'zh' ? '预测' : 'Pred'} ${r.audit.predictedScore} · ${locale === 'zh' ? '实际' : 'Actual'} ${r.audit.actualScore}`}
+                      >
+                        {r.audit.exactScoreHit ? '√' : '×'}
+                      </span>
+                      <span className="font-mono text-[9px] text-fg-3">
+                        {r.audit.predictedScore}/{r.audit.actualScore}
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="text-fg-3">-</span>
+                  )}
                 </td>
               </tr>
             ))}

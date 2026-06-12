@@ -1,0 +1,851 @@
+{
+  "_meta": {
+    "purpose": "Tracks pre-match modal-score forecasts against real World Cup results. Exact score matches count as hits.",
+    "updated_at": "2026-06-12T05:25:45.279Z",
+    "accuracy": {
+      "exact_score_hits": 1,
+      "settled_matches": 1,
+      "exact_score_rate": 1
+    }
+  },
+  "forecasts": {
+    "73": {
+      "stage": "r32",
+      "home": "KOR",
+      "away": "CAN",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "74": {
+      "stage": "r32",
+      "home": "ECU",
+      "away": "HAI",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "75": {
+      "stage": "r32",
+      "home": "NED",
+      "away": "MAR",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "76": {
+      "stage": "r32",
+      "home": "BRA",
+      "away": "JPN",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "77": {
+      "stage": "r32",
+      "home": "FRA",
+      "away": "IRN",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "78": {
+      "stage": "r32",
+      "home": "GER",
+      "away": "NOR",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "79": {
+      "stage": "r32",
+      "home": "MEX",
+      "away": "CIV",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "80": {
+      "stage": "r32",
+      "home": "ENG",
+      "away": "UZB",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "81": {
+      "stage": "r32",
+      "home": "TUR",
+      "away": "BIH",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "82": {
+      "stage": "r32",
+      "home": "BEL",
+      "away": "CZE",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "83": {
+      "stage": "r32",
+      "home": "COL",
+      "away": "CRO",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "84": {
+      "stage": "r32",
+      "home": "ESP",
+      "away": "AUT",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "85": {
+      "stage": "r32",
+      "home": "SUI",
+      "away": "NZL",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "86": {
+      "stage": "r32",
+      "home": "ARG",
+      "away": "URU",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "87": {
+      "stage": "r32",
+      "home": "COL",
+      "away": "PAN",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "88": {
+      "stage": "r32",
+      "home": "TUR",
+      "away": "BEL",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "89": {
+      "stage": "r16",
+      "home": "ECU",
+      "away": "FRA",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "90": {
+      "stage": "r16",
+      "home": "SUI",
+      "away": "NED",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "91": {
+      "stage": "r16",
+      "home": "BRA",
+      "away": "NOR",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "92": {
+      "stage": "r16",
+      "home": "MEX",
+      "away": "ENG",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "93": {
+      "stage": "r16",
+      "home": "ENG",
+      "away": "ESP",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "94": {
+      "stage": "r16",
+      "home": "TUR",
+      "away": "BEL",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "95": {
+      "stage": "r16",
+      "home": "ARG",
+      "away": "TUR",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "96": {
+      "stage": "r16",
+      "home": "SUI",
+      "away": "POR",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "97": {
+      "stage": "qf",
+      "home": "FRA",
+      "away": "NED",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "98": {
+      "stage": "qf",
+      "home": "ESP",
+      "away": "TUR",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "99": {
+      "stage": "qf",
+      "home": "BRA",
+      "away": "ENG",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "100": {
+      "stage": "qf",
+      "home": "ARG",
+      "away": "POR",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "101": {
+      "stage": "sf",
+      "home": "FRA",
+      "away": "ESP",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "102": {
+      "stage": "sf",
+      "home": "BRA",
+      "away": "ARG",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "103": {
+      "stage": "3rd",
+      "home": "ESP",
+      "away": "ARG",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "104": {
+      "stage": "final",
+      "home": "ESP",
+      "away": "ARG",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "A:0": {
+      "stage": "group",
+      "home": "MEX",
+      "away": "RSA",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-11T18:30:00.000Z"
+    },
+    "A:2": {
+      "stage": "group",
+      "home": "MEX",
+      "away": "KOR",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "A:3": {
+      "stage": "group",
+      "home": "RSA",
+      "away": "CZE",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "A:4": {
+      "stage": "group",
+      "home": "MEX",
+      "away": "CZE",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "A:5": {
+      "stage": "group",
+      "home": "RSA",
+      "away": "KOR",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "B:0": {
+      "stage": "group",
+      "home": "CAN",
+      "away": "BIH",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "B:1": {
+      "stage": "group",
+      "home": "QAT",
+      "away": "SUI",
+      "predicted_gh": 0,
+      "predicted_ga": 2,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "B:2": {
+      "stage": "group",
+      "home": "CAN",
+      "away": "QAT",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "B:3": {
+      "stage": "group",
+      "home": "BIH",
+      "away": "SUI",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "B:4": {
+      "stage": "group",
+      "home": "CAN",
+      "away": "SUI",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "B:5": {
+      "stage": "group",
+      "home": "BIH",
+      "away": "QAT",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "C:0": {
+      "stage": "group",
+      "home": "BRA",
+      "away": "MAR",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "C:1": {
+      "stage": "group",
+      "home": "HAI",
+      "away": "SCO",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "C:2": {
+      "stage": "group",
+      "home": "BRA",
+      "away": "HAI",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "C:3": {
+      "stage": "group",
+      "home": "MAR",
+      "away": "SCO",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "C:4": {
+      "stage": "group",
+      "home": "BRA",
+      "away": "SCO",
+      "predicted_gh": 3,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "C:5": {
+      "stage": "group",
+      "home": "MAR",
+      "away": "HAI",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "D:0": {
+      "stage": "group",
+      "home": "USA",
+      "away": "PAR",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "D:1": {
+      "stage": "group",
+      "home": "AUS",
+      "away": "TUR",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "D:2": {
+      "stage": "group",
+      "home": "USA",
+      "away": "AUS",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "D:3": {
+      "stage": "group",
+      "home": "PAR",
+      "away": "TUR",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "D:4": {
+      "stage": "group",
+      "home": "USA",
+      "away": "TUR",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "D:5": {
+      "stage": "group",
+      "home": "PAR",
+      "away": "AUS",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "E:0": {
+      "stage": "group",
+      "home": "GER",
+      "away": "CUW",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "E:1": {
+      "stage": "group",
+      "home": "CIV",
+      "away": "ECU",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "E:2": {
+      "stage": "group",
+      "home": "GER",
+      "away": "CIV",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "E:3": {
+      "stage": "group",
+      "home": "CUW",
+      "away": "ECU",
+      "predicted_gh": 0,
+      "predicted_ga": 2,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "E:4": {
+      "stage": "group",
+      "home": "GER",
+      "away": "ECU",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "E:5": {
+      "stage": "group",
+      "home": "CUW",
+      "away": "CIV",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "F:0": {
+      "stage": "group",
+      "home": "NED",
+      "away": "JPN",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "F:1": {
+      "stage": "group",
+      "home": "SWE",
+      "away": "TUN",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "F:2": {
+      "stage": "group",
+      "home": "NED",
+      "away": "SWE",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "F:3": {
+      "stage": "group",
+      "home": "JPN",
+      "away": "TUN",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "F:4": {
+      "stage": "group",
+      "home": "NED",
+      "away": "TUN",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "F:5": {
+      "stage": "group",
+      "home": "JPN",
+      "away": "SWE",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "G:0": {
+      "stage": "group",
+      "home": "BEL",
+      "away": "EGY",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "G:1": {
+      "stage": "group",
+      "home": "IRN",
+      "away": "NZL",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "G:2": {
+      "stage": "group",
+      "home": "BEL",
+      "away": "IRN",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "G:3": {
+      "stage": "group",
+      "home": "EGY",
+      "away": "NZL",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "G:4": {
+      "stage": "group",
+      "home": "BEL",
+      "away": "NZL",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "G:5": {
+      "stage": "group",
+      "home": "EGY",
+      "away": "IRN",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "H:0": {
+      "stage": "group",
+      "home": "ESP",
+      "away": "CPV",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "H:1": {
+      "stage": "group",
+      "home": "KSA",
+      "away": "URU",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "H:2": {
+      "stage": "group",
+      "home": "ESP",
+      "away": "KSA",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "H:3": {
+      "stage": "group",
+      "home": "CPV",
+      "away": "URU",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "H:4": {
+      "stage": "group",
+      "home": "ESP",
+      "away": "URU",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "H:5": {
+      "stage": "group",
+      "home": "CPV",
+      "away": "KSA",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "I:0": {
+      "stage": "group",
+      "home": "FRA",
+      "away": "SEN",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "I:1": {
+      "stage": "group",
+      "home": "IRQ",
+      "away": "NOR",
+      "predicted_gh": 0,
+      "predicted_ga": 2,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "I:2": {
+      "stage": "group",
+      "home": "FRA",
+      "away": "IRQ",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "I:3": {
+      "stage": "group",
+      "home": "SEN",
+      "away": "NOR",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "I:4": {
+      "stage": "group",
+      "home": "FRA",
+      "away": "NOR",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "I:5": {
+      "stage": "group",
+      "home": "SEN",
+      "away": "IRQ",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "J:0": {
+      "stage": "group",
+      "home": "ARG",
+      "away": "ALG",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "J:1": {
+      "stage": "group",
+      "home": "AUT",
+      "away": "JOR",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "J:2": {
+      "stage": "group",
+      "home": "ARG",
+      "away": "AUT",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "J:3": {
+      "stage": "group",
+      "home": "ALG",
+      "away": "JOR",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "J:4": {
+      "stage": "group",
+      "home": "ARG",
+      "away": "JOR",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "J:5": {
+      "stage": "group",
+      "home": "ALG",
+      "away": "AUT",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "K:0": {
+      "stage": "group",
+      "home": "POR",
+      "away": "COD",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "K:1": {
+      "stage": "group",
+      "home": "UZB",
+      "away": "COL",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "K:2": {
+      "stage": "group",
+      "home": "POR",
+      "away": "UZB",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "K:3": {
+      "stage": "group",
+      "home": "COD",
+      "away": "COL",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "K:4": {
+      "stage": "group",
+      "home": "POR",
+      "away": "COL",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "K:5": {
+      "stage": "group",
+      "home": "COD",
+      "away": "UZB",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "L:0": {
+      "stage": "group",
+      "home": "ENG",
+      "away": "CRO",
+      "predicted_gh": 1,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "L:1": {
+      "stage": "group",
+      "home": "GHA",
+      "away": "PAN",
+      "predicted_gh": 0,
+      "predicted_ga": 1,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "L:2": {
+      "stage": "group",
+      "home": "ENG",
+      "away": "GHA",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "L:3": {
+      "stage": "group",
+      "home": "CRO",
+      "away": "PAN",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "L:4": {
+      "stage": "group",
+      "home": "ENG",
+      "away": "PAN",
+      "predicted_gh": 1,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    },
+    "L:5": {
+      "stage": "group",
+      "home": "CRO",
+      "away": "GHA",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "forecasted_at": "2026-06-12T05:25:44.074Z"
+    }
+  },
+  "results": {
+    "A:0": {
+      "stage": "group",
+      "home": "MEX",
+      "away": "RSA",
+      "predicted_gh": 2,
+      "predicted_ga": 0,
+      "actual_gh": 2,
+      "actual_ga": 0,
+      "exact_score_hit": true,
+      "outcome_hit": true,
+      "settled_at": "2026-06-12T00:30:00.000Z"
+    }
+  }
+}
