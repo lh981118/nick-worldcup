@@ -105,7 +105,7 @@ export function Hero({ state, onRun }: HeroProps) {
 
         <div className="relative flex w-full min-w-0 flex-col">
           <KickoffCountdown className="mb-2 sm:mb-4 lg:mb-4" />
-          <HeroGallery />
+          <HeroGallery result={state.result} />
         </div>
       </div>
     </section>

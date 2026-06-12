@@ -1,232 +1,251 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import Image from 'next/image';
-import { useLocale, useTranslations } from 'next-intl';
+import { useEffect, useMemo, useRef } from 'react';
+import { CalendarDays, ChevronRight, CircleCheck, CircleX, Clock3, Trophy } from 'lucide-react';
+import { useLocale } from 'next-intl';
 import { gsap } from 'gsap';
 import { entrancePlayed, markEntrancePlayed } from '@/lib/entranceAnimation';
-import { cn } from '@/lib/utils';
+import { cn, formatPct } from '@/lib/utils';
+import { teamDisplayName } from '@/lib/i18nNames';
+import { useSelection } from '@/hooks/useSelection';
+import { Flag } from '../Flag';
+import stateData from '@/data/tournament_state.json';
+import auditData from '@/data/prediction_audit.json';
+import type { SerializedResult } from '@/lib/sim/worker';
 
-const FLOATS = [
-  {
-    src: '/worldcup_argentina.jpg',
-    titleKey: 'wc2022',
-    altKey: 'alt_wc2022',
-    tag: '02',
-    objectPosition: 'object-center',
-    cell: 'col-span-3',
-    height: 'h-[178px] sm:h-[211px]',
-    tilt: 'sm:-rotate-2',
-  },
-  {
-    src: '/worldcup-player.webp',
-    titleKey: 'stars',
-    altKey: 'alt_stars',
-    tag: '04',
-    objectPosition: 'object-[center_15%]',
-    cell: 'col-span-6 z-20 -translate-y-2 sm:-translate-y-4 lg:-translate-y-7',
-    height: 'h-[211px] sm:h-[254px]',
-    tilt: '',
-    featured: true,
-  },
-  {
-    src: '/ronaldo_messi.jpg',
-    titleKey: 'legends',
-    altKey: 'alt_legends',
-    tag: '03',
-    objectPosition: 'object-[center_35%]',
-    cell: 'col-span-3',
-    height: 'h-[178px] sm:h-[211px]',
-    tilt: 'sm:rotate-2',
-  },
-] as const;
-
-function FloatCard({
-  src,
-  alt,
-  title,
-  tag,
-  objectPosition,
-  cell,
-  height,
-  tilt,
-  featured,
-}: {
-  src: string;
-  alt: string;
-  title: string;
-  tag: string;
-  objectPosition: string;
-  cell: string;
-  height: string;
-  tilt: string;
-  featured?: boolean;
-}) {
-  return (
-    <figure
-      className={cn(
-        'gallery-float group relative w-full overflow-hidden rounded-xl sm:rounded-2xl',
-        cell,
-        height,
-        tilt,
-        'bg-bg-2 shadow-[0_24px_48px_-14px_rgba(0,0,0,0.7)]',
-        'ring-1 ring-white/10 transition-all duration-700',
-        'hover:z-30 hover:scale-[1.03] hover:ring-gold/45 hover:shadow-glow-gold',
-        featured && 'ring-gold/25 shadow-glow-gold',
-      )}
-    >
-      <div
-        className="absolute inset-0 rounded-xl p-px sm:rounded-2xl"
-        style={{
-          background: featured
-            ? 'linear-gradient(145deg, oklch(0.90 0.10 180 / 0.9), oklch(0.76 0.13 180 / 0.45) 50%, oklch(0.60 0.10 180 / 0.35))'
-            : 'linear-gradient(145deg, oklch(0.88 0.11 180 / 0.7), oklch(0.60 0.10 180 / 0.15) 50%, oklch(0.76 0.13 180 / 0.4))',
-        }}
-      >
-        <div className="relative h-full w-full overflow-hidden rounded-[0.7rem] bg-bg-1 sm:rounded-[0.85rem]">
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            quality={95}
-            sizes={featured ? '(max-width: 1024px) 50vw, 480px' : '(max-width: 1024px) 22vw, 240px'}
-            className={cn(
-              'object-cover transition-transform duration-700 group-hover:scale-[1.03]',
-              objectPosition,
-            )}
-          />
-          <div className="absolute inset-x-0 bottom-0 h-[36%] bg-gradient-to-t from-bg-0/95 via-bg-0/45 to-transparent" />
-          <figcaption className="absolute inset-x-0 bottom-0 flex items-center justify-between px-3 py-2 sm:px-3.5 sm:py-2.5">
-            <span
-              className={cn(
-                'font-display font-medium text-fg-0',
-                featured ? 'text-xs sm:text-sm' : 'text-[10px] sm:text-[11px]',
-              )}
-            >
-              {title}
-            </span>
-            <span className="font-mono text-[8px] tracking-[0.16em] text-gold/85 sm:text-[9px]">{tag}</span>
-          </figcaption>
-        </div>
-      </div>
-    </figure>
-  );
+interface Props {
+  result: SerializedResult | null;
 }
 
-export function HeroGallery() {
+interface LiveResult {
+  stage: 'group' | 'r32' | 'r16' | 'qf' | 'sf' | 'final' | '3rd';
+  home: string;
+  away: string;
+  gh: number;
+  ga: number;
+  status: 'completed' | 'scheduled';
+  kickoff_iso?: string;
+}
+
+interface PredictionAuditFile {
+  results: Record<string, {
+    predicted_gh: number;
+    predicted_ga: number;
+    actual_gh: number;
+    actual_ga: number;
+    exact_score_hit: boolean;
+  }>;
+}
+
+const LIVE_RESULTS = (stateData as { results: Record<string, LiveResult> }).results;
+const AUDIT = auditData as PredictionAuditFile;
+
+function shanghaiDateKey(iso?: string): string {
+  if (!iso) return '';
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Shanghai',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date(iso));
+  const get = (type: string) => parts.find((p) => p.type === type)?.value ?? '';
+  return `${get('year')}-${get('month')}-${get('day')}`;
+}
+
+function shanghaiTime(iso: string | undefined): string {
+  if (!iso) return '--:--';
+  return new Intl.DateTimeFormat('zh-CN', {
+    timeZone: 'Asia/Shanghai',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).format(new Date(iso));
+}
+
+function modalScore(scoreHist: number[]): { home: number; away: number; prob: number } {
+  let bestIdx = 0;
+  let bestCount = -1;
+  let total = 0;
+  for (let i = 0; i < scoreHist.length; i++) {
+    total += scoreHist[i];
+    if (scoreHist[i] > bestCount) {
+      bestCount = scoreHist[i];
+      bestIdx = i;
+    }
+  }
+  return {
+    home: Math.floor(bestIdx / 8),
+    away: bestIdx % 8,
+    prob: total > 0 ? bestCount / total : 0,
+  };
+}
+
+export function HeroGallery({ result }: Props) {
   const locale = useLocale();
-  const t = useTranslations('gallery');
   const rootRef = useRef<HTMLDivElement>(null);
+  const openFixture = useSelection((s) => s.openFixture);
+
+  const cards = useMemo(() => {
+    const teamById = new Map(result?.teams.map((t) => [t.id, t]) ?? []);
+    const fixtureByKey = new Map(result?.fixtures ?? []);
+    const today = shanghaiDateKey(new Date().toISOString());
+    const all = Object.entries(LIVE_RESULTS)
+      .filter(([, match]) => match.kickoff_iso)
+      .map(([key, match]) => {
+        const fixture = fixtureByKey.get(key);
+        const predicted = fixture ? modalScore(fixture.scoreHist) : null;
+        const audit = AUDIT.results[key];
+        const shownScore = audit
+          ? { home: audit.predicted_gh, away: audit.predicted_ga, prob: predicted?.prob ?? 0 }
+          : predicted;
+        return {
+          key,
+          match,
+          homeTeam: teamById.get(match.home),
+          awayTeam: teamById.get(match.away),
+          localDate: shanghaiDateKey(match.kickoff_iso),
+          shownScore,
+          audit,
+        };
+      })
+      .filter((item) => item.homeTeam && item.awayTeam && item.shownScore)
+      .sort((a, b) => (a.match.kickoff_iso ?? '').localeCompare(b.match.kickoff_iso ?? ''));
+
+    const todays = all.filter((item) => item.localDate === today);
+    const future = all.filter((item) => item.match.status !== 'completed' && item.localDate > today);
+    const picked = todays.length > 0 ? [...todays, ...future].slice(0, 4) : future.slice(0, 4);
+    return picked.length > 0 ? picked : all.slice(-4);
+  }, [result]);
 
   useEffect(() => {
     if (!rootRef.current) return;
-    const hero = rootRef.current.querySelector('.gallery-hero');
-    const floats = rootRef.current.querySelectorAll('.gallery-float');
-    if (!hero) return;
-
-    const key = `gallery-${locale}`;
-
+    const cardNodes = rootRef.current.querySelectorAll('.daily-pick-card');
+    const key = `daily-picks-${locale}`;
     if (entrancePlayed(key)) {
-      gsap.set(hero, { opacity: 1, y: 0 });
-      gsap.set(floats, { opacity: 1, y: 0 });
+      gsap.set(cardNodes, { opacity: 1, y: 0 });
       return;
     }
-
     markEntrancePlayed(key);
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        hero,
-        { opacity: 0, y: -20 },
-        { opacity: 1, y: 0, duration: 1, ease: 'expo.out', delay: 0.1 },
+        cardNodes,
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, stagger: 0.08, duration: 0.7, ease: 'expo.out', delay: 0.15 },
       );
-      if (floats.length) {
-        gsap.fromTo(
-          floats,
-          { opacity: 0, y: 28 },
-          {
-            opacity: 1,
-            y: 0,
-            stagger: 0.1,
-            duration: 0.9,
-            ease: 'back.out(1.2)',
-            delay: 0.3,
-          },
-        );
-      }
     }, rootRef);
     return () => ctx.revert();
-  }, [locale]);
+  }, [locale, cards.length]);
 
   return (
-    <div ref={rootRef} className="relative w-full overflow-hidden">
+    <div ref={rootRef} className="relative w-full overflow-hidden rounded-2xl border border-emerald/25 bg-bg-0/78 p-3 shadow-[0_28px_72px_-28px_rgba(45,212,191,0.55)] backdrop-blur-xl sm:p-4">
       <div
-        className="pointer-events-none absolute -inset-4 rounded-full opacity-55 blur-3xl sm:-inset-8"
+        className="pointer-events-none absolute inset-0 opacity-45"
         style={{
           background:
-            'radial-gradient(circle at 50% 20%, oklch(0.76 0.13 180 / 0.24), transparent 65%)',
+            'linear-gradient(135deg, oklch(0.70 0.16 180 / 0.22), transparent 42%), radial-gradient(circle at 78% 10%, oklch(0.88 0.14 85 / 0.18), transparent 34%)',
         }}
         aria-hidden
       />
 
-      <div className="grid grid-cols-12 gap-3 sm:gap-4">
-        {/* trophy - full width, large */}
-        <figure
-          className={cn(
-            'gallery-hero relative col-span-12 overflow-hidden rounded-2xl',
-            'shadow-[0_36px_72px_-18px_rgba(0,0,0,0.6)] ring-1 ring-white/[0.08]',
-          )}
-        >
-          <div className="relative aspect-[16/9] w-full sm:aspect-[16/8]">
-            <Image
-              src="/worldcup1.jpg"
-              alt={t('alt_trophy')}
-              fill
-              priority
-              quality={95}
-              sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 48vw, 900px"
-              className="object-cover object-top"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-0/88" />
-            <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 px-5 pb-5 pt-20 sm:px-6 sm:pb-6">
-              <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold/90 sm:text-[10px]">
-                  {t('trophy_eyebrow')}
-                </p>
-                <p className="mt-1 font-display text-xl font-light tracking-wide text-fg-0 sm:text-2xl lg:text-3xl">
-                  {t('trophy')}
-                </p>
-              </div>
-              <span className="font-display text-4xl font-thin leading-none text-fg-0/12 sm:text-5xl lg:text-6xl">
-                01
-              </span>
-            </figcaption>
+      <header className="relative z-10 mb-3 flex items-start justify-between gap-3">
+        <div>
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald/30 bg-emerald/10 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-emerald">
+            <CalendarDays className="h-3 w-3" />
+            {locale === 'zh' ? '每日赛前预测' : 'Daily Picks'}
           </div>
-        </figure>
+          <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-fg-0 sm:text-3xl">
+            {locale === 'zh' ? '今日比赛预测比分' : 'Today score predictions'}
+          </h2>
+          <p className="mt-1 max-w-lg text-xs leading-relaxed text-fg-2 sm:text-sm">
+            {locale === 'zh'
+              ? '点开任意比赛，查看比分分布、胜平负概率、进球和关键数据。'
+              : 'Tap any match to open the score distribution and match probabilities.'}
+          </p>
+        </div>
+        <div className="hidden rounded-full border border-gold/25 bg-gold/10 p-2 text-gold sm:block">
+          <Trophy className="h-5 w-5" />
+        </div>
+      </header>
 
-        {/* companion row - 3 + 6 + 3 grid, fixed heights, aligned */}
-        {FLOATS.map((photo) => (
-          <FloatCard
-            key={photo.src}
-            src={photo.src}
-            alt={t(photo.altKey)}
-            title={t(photo.titleKey)}
-            tag={photo.tag}
-            objectPosition={photo.objectPosition}
-            cell={cn(photo.cell, 'col-start-auto -mt-6 sm:-mt-11 lg:-mt-[3.3rem]')}
-            height={photo.height}
-            tilt={photo.tilt}
-            featured={'featured' in photo && photo.featured}
-          />
-        ))}
+      <div className="relative z-10 grid gap-2.5">
+        {cards.map(({ key, match, homeTeam, awayTeam, shownScore, audit }) => {
+          if (!homeTeam || !awayTeam || !shownScore) return null;
+          const completed = match.status === 'completed';
+          const homeWin = shownScore.home > shownScore.away;
+          const awayWin = shownScore.home < shownScore.away;
+          return (
+            <button
+              key={key}
+              type="button"
+              onClick={() => openFixture(key)}
+              className="daily-pick-card group grid w-full grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 rounded-xl border border-border/70 bg-bg-1/72 px-3 py-3 text-left transition hover:border-emerald/45 hover:bg-bg-2/80 hover:shadow-glow"
+            >
+              <div className="min-w-0">
+                <div className="mb-1 flex items-center gap-2">
+                  <Flag code={homeTeam.flag} size={22} />
+                  <span className={cn('truncate text-sm font-semibold', homeWin ? 'text-emerald' : 'text-fg-0')}>
+                    {teamDisplayName(homeTeam, locale)}
+                  </span>
+                </div>
+                <div className="font-mono text-[10px] text-fg-3">
+                  {shanghaiTime(match.kickoff_iso)}
+                  <span className="mx-1">·</span>
+                  {match.stage === 'group' ? `${locale === 'zh' ? '小组赛' : 'Group'} ${match.home && key.split(':')[0]}` : match.stage.toUpperCase()}
+                </div>
+              </div>
+
+              <div className="flex min-w-[92px] flex-col items-center">
+                <div className="font-display text-3xl font-black leading-none text-fg-0 tabular">
+                  {shownScore.home}
+                  <span className="mx-1 text-fg-3">-</span>
+                  {shownScore.away}
+                </div>
+                <div className="mt-1 flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.14em] text-fg-3">
+                  {completed ? (
+                    audit?.exact_score_hit ? (
+                      <>
+                        <CircleCheck className="h-3 w-3 text-emerald" />
+                        <span className="text-emerald">{locale === 'zh' ? '已命中' : 'Hit'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <CircleX className="h-3 w-3 text-rose" />
+                        <span className="text-rose">{locale === 'zh' ? '未命中' : 'Miss'}</span>
+                      </>
+                    )
+                  ) : (
+                    <>
+                      <Clock3 className="h-3 w-3" />
+                      <span>{locale === 'zh' ? '预测' : 'Pick'} {formatPct(shownScore.prob, 1)}</span>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              <div className="min-w-0 text-right">
+                <div className="mb-1 flex items-center justify-end gap-2">
+                  <span className={cn('truncate text-sm font-semibold', awayWin ? 'text-emerald' : 'text-fg-0')}>
+                    {teamDisplayName(awayTeam, locale)}
+                  </span>
+                  <Flag code={awayTeam.flag} size={22} />
+                </div>
+                <div className="inline-flex items-center gap-1 font-mono text-[10px] text-emerald/90">
+                  {completed && audit
+                    ? `${locale === 'zh' ? '实际' : 'Actual'} ${audit.actual_gh}-${audit.actual_ga}`
+                    : locale === 'zh' ? '查看详情' : 'Details'}
+                  <ChevronRight className="h-3 w-3 transition group-hover:translate-x-0.5" />
+                </div>
+              </div>
+            </button>
+          );
+        })}
       </div>
 
-      <div
-        className="mx-auto mt-2 h-px max-w-[75%] bg-gradient-to-r from-transparent via-gold/25 to-transparent"
-        aria-hidden
-      />
-      <p className="mt-2 text-center font-mono text-[9px] uppercase tracking-[0.26em] text-fg-3 sm:text-[10px]">
-        {t('tagline')}
-      </p>
+      <div className="relative z-10 mt-3 rounded-xl border border-border/60 bg-bg-1/50 px-3 py-2 font-mono text-[10px] leading-relaxed text-fg-3">
+        {locale === 'zh'
+          ? '每天自动同步赛果，并用最新数据重新生成预测比分。'
+          : 'Results sync automatically and the model refreshes predictions with the latest data.'}
+      </div>
     </div>
   );
 }
