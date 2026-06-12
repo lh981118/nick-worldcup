@@ -52,7 +52,9 @@ function localizeTrigger(trigger: string, locale: string): string {
   return trigger
     .replace('After', '赛后')
     .replace('MEX', '墨西哥')
-    .replace('RSA', '南非');
+    .replace('RSA', '南非')
+    .replace('KOR', '韩国')
+    .replace('CZE', '捷克');
 }
 
 export function PredictionDelta({ result }: Props) {
@@ -70,7 +72,6 @@ export function PredictionDelta({ result }: Props) {
       const before = prev.probabilities[id]?.champ ?? 0;
       const after = p.champ;
       const delta = after - before;
-      if (Math.abs(delta) < 0.005) continue;
       const team = teamLookup.get(id);
       if (!team) continue;
       rows.push({ id, name: teamDisplayName(team, locale), flag: team.flag, before, after, delta });
