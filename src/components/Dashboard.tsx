@@ -23,6 +23,13 @@ export function Dashboard() {
   const { state, run } = useSimulation();
   const router = useRouter();
   const lastStatus = useRef(state.status);
+  const autoRunStarted = useRef(false);
+
+  useEffect(() => {
+    if (autoRunStarted.current) return;
+    autoRunStarted.current = true;
+    run(10000);
+  }, [run]);
 
   useEffect(() => {
     if (state.result) {
